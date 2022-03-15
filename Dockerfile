@@ -5,4 +5,4 @@ RUN npm ci
 COPY tsconfig.json ./
 COPY ts/ ./ts/
 COPY dist/ ./dist/
-CMD npm run build
+RUN npm run build
