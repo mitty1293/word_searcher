@@ -1,1 +1,19 @@
 # word_searcher
+## 辞書について
+以下を使用しています。<br>
+https://github.com/kujirahand/EJDict
+
+そのままのフォーマットでは、日本語の意味を含んでいたりカンマで区切られたりしています。
+```
+英単語1 \t 意味1
+英単語2 \t 意味2
+英単語3 \t 意味3
+...
+```
+```
+英単語, 英単語, 英単語 \t 意味
+```
+日本語は不要でカンマを改行としたいので、`cut`や`tr`で英単語のみを取り出しています。
+```
+cut -f 1 ejdict-hand-utf8.txt | tr ',' '\n' > ejdict-hand-utf8-english-only.txt
+```
