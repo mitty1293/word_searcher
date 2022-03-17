@@ -1,0 +1,2 @@
+import { word_searcher } from './word_searcher.js';
+console.log(word_searcher("t..a."));
