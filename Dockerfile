@@ -1,14 +1,9 @@
 FROM node:16.14.0-bullseye-slim AS builder
 WORKDIR /app
-COPY package.json package-lock.json ./
+COPY package.json package-lock.json /app/
 RUN npm ci
-COPY tsconfig.json ./
-COPY ts/ ./ts/
-COPY dist/ ./dist/
+COPY tsconfig.json /app/
+COPY ts/ /app/ts/
+COPY dist/ /app/dist/
+COPY ejdict-hand-utf8-english-only.txt /app/
 RUN npm run build
-
-FROM httpd:2.4 AS runner
-COPY --from=builder /app/dist/ /usr/local/apache2/htdocs/dist/
-COPY ejdict-hand-utf8-english-only.txt /usr/local/apache2/htdocs/
-COPY html/index.html /usr/local/apache2/htdocs/
-COPY html/base.css /usr/local/apache2/htdocs/

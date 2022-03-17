@@ -1,4 +1,24 @@
 # word_searcher
+正規表現を使って英単語を検索するCLIツールです。
+## Setup
+```
+docker-compose up -d
+```
+## 使い方
+```
+docker exec -it word_searcher node ./dist/main.js [regular expression]
+```
+### Example
+```
+docker exec -it word_searcher node ./dist/main.js t.d..
+tidal
+today
+toddy
+```
+```
+docker exec -it word_searcher node ./dist/main.js tiiiii
+No words matching the pattern were found.
+```
 ## 辞書について
 以下を使用しています。<br>
 https://github.com/kujirahand/EJDict

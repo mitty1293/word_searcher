@@ -7,5 +7,3 @@ services:
             dockerfile: Dockerfile
         container_name: word_searcher
         tty: true
-        volumes:
-            - .:/app
