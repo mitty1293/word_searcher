@@ -1,4 +1,4 @@
-FROM node:16.14.0-bullseye-slim AS builder
+FROM node:16.14.0-bullseye-slim
 WORKDIR /app
 COPY package.json package-lock.json /app/
 RUN npm ci
