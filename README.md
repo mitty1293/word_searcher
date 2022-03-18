@@ -1,10 +1,14 @@
 # word_searcher
-正規表現を使って英単語を検索するCLIツールです。
+## Overview
+正規表現を使って英単語を検索するNode.jsのCLIツールです。
+## Requirement
+Node.js
 ## Setup
 ```
-docker-compose up -d
+npm ci
+npm run build
 ```
-## 使い方
+## Usage
 ```
 node ./dist/main.js [regular expression]
 ```
