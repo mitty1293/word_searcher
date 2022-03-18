@@ -6,17 +6,17 @@ docker-compose up -d
 ```
 ## 使い方
 ```
-docker exec -it word_searcher node ./dist/main.js [regular expression]
+node ./dist/main.js [regular expression]
 ```
 ### Example
 ```
-docker exec -it word_searcher node ./dist/main.js t.d..
+node ./dist/main.js t.d..
 tidal
 today
 toddy
 ```
 ```
-docker exec -it word_searcher node ./dist/main.js tiiiii
+node ./dist/main.js tiiiii
 No words matching the pattern were found.
 ```
 ## 辞書について
