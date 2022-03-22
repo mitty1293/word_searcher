@@ -2,7 +2,8 @@
 ## Overview
 正規表現を使って英単語を検索するNode.jsのCLIツールです。
 ## Requirement
-Node.js
+Node.js v16.x 以上  
+https://github.com/nodesource/distributions/blob/master/README.md
 ## Setup
 ```
 npm ci
