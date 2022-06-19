@@ -1,10 +1,13 @@
-import { word_searcher } from './word_searcher.js';
-const result = word_searcher(process.argv[2]);
-if (result) {
-    for (let i = 0; i < result.length; i++) {
-        console.log(result[i]);
-    }
-}
-else {
-    console.log("No words matching the pattern were found.");
-}
+import { Octokit } from '@octokit/rest';
+(async () => {
+    const octokit = new Octokit();
+    const content = await octokit.repos.getContent({
+        owner: "mitty1293",
+        repo: "word_searcher",
+        path: "ejdict-hand-utf8-english-only.txt"
+    });
+    const data = new Buffer.from(content.data.content, content.data.encoding);
+    const data2 = data.toString();
+    console.log(typeof (data));
+    console.log(typeof (data2));
+})();
