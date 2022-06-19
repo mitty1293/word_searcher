@@ -12,8 +12,8 @@ const en_word_list = async () => {
 };
 
 export const word_searcher = (pattern: string): string[] | undefined => {
-    const regex: RegExp = new RegExp(`\\n${pattern}\\n`, 'gi')
-    const data: Promise<string> = en_word_list()
+    const regex: RegExp = new RegExp(`\\n${pattern}\\n`, 'gi');
+    const data = en_word_list();
     const result: string[] | undefined = data.match(regex)?.map(obj => obj.substring(1, obj.length - 1));
     return result;
 };
