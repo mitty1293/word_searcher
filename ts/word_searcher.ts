@@ -1,5 +1,4 @@
 import { Octokit } from '@octokit/rest';
-import atob from 'atob';
 
 const en_word_list = async () => {
     const octokit = new Octokit();
@@ -8,8 +7,7 @@ const en_word_list = async () => {
         repo: "word_searcher",
         path: "ejdict-hand-utf8-english-only.txt"
     });
-    // const content_data: string = new Buffer.from(content.data.content, content.data.encoding).toString();
-    const content_data = atob(content.data.content);
+    const content_data: string = new Buffer.from(content.data.content, content.data.encoding).toString();
     return content_data;
 };
 
