@@ -1,9 +1,5 @@
 import { Octokit } from '@octokit/rest';
 
-const atob = (base64: string): string => {
-    return Buffer.from(base64, 'base64').toString('binary');
-};
-
 const en_word_list = async (): Promise<string> => {
     const octokit = new Octokit();
     const content = await octokit.repos.getContent({
@@ -11,7 +7,7 @@ const en_word_list = async (): Promise<string> => {
         repo: "word_searcher",
         path: "ejdict-hand-utf8-english-only.txt"
     });
-    const content_data: string = atob(content.data.content);
+    const content_data: string = window.atob(content.data.content);
     return content_data;
 };
 

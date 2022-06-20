@@ -1,0 +1,12 @@
+version: '3.9'
+services:
+    app:
+        build:
+            context: ./
+            dockerfile: Dockerfile
+            target: runner
+        image: word_searcher
+        container_name: word_searcher
+        ports:
+            - "8080:80"
+        tty: true
