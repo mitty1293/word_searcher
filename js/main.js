@@ -7,10 +7,7 @@ const output_data = document.getElementById("output_data");
 search_btn.addEventListener('click', () => {
     word_searcher(input_data.value).then(result => {
         if (result) {
-            for (let i = 0; i < result.length; i++) {
-                input_data.value += result[i];
-                input_data.value += "\n";
-            }
+            output_data.value = result.join("\n");
         }
         else {
             output_data.value = "No words matching the pattern were found.";

@@ -1,7 +1,5 @@
-import { Octokit } from '@octokit/rest';
-const atob = (base64) => {
-    return Buffer.from(base64, 'base64').toString('binary');
-};
+import { Octokit } from 'https://cdn.skypack.dev/@octokit/rest';
+
 const en_word_list = async () => {
     const octokit = new Octokit();
     const content = await octokit.repos.getContent({
@@ -9,7 +7,7 @@ const en_word_list = async () => {
         repo: "word_searcher",
         path: "ejdict-hand-utf8-english-only.txt"
     });
-    const content_data = atob(content.data.content);
+    const content_data = window.atob(content.data.content);
     return content_data;
 };
 export const word_searcher = async (pattern) => {
