@@ -1,29 +1,15 @@
 # word_searcher
 ## Overview
-正規表現を使って英単語を検索するNode.jsのCLIツールです。
-## Requirement
-Node.js v16.x 以上  
-https://github.com/nodesource/distributions/blob/master/README.md
-## Setup
+Web app to search English words using regular expressions. 
+
+Access XXXXX, type or paste your input data and press the search button.
+## Self hosting
 ```
-npm ci
-npm run build
+git clone https://github.com/mitty1293/word_searcher.git
+docker build -t word_searcher ./word_searcher/
+docker run -itd -p <host-port>:80 --name word_searcher word_searcher
 ```
-## Usage
-```
-node ./dist/main.js [regular expression]
-```
-### Example
-```
-node ./dist/main.js t.d..
-tidal
-today
-toddy
-```
-```
-node ./dist/main.js tiiiii
-No words matching the pattern were found.
-```
+Go to `http://host-ip:host-port`.
 ## 辞書について
 以下を使用しています。<br>
 https://github.com/kujirahand/EJDict
