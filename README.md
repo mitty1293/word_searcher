@@ -2,7 +2,7 @@
 ## Overview
 Web app to search English words using regular expressions. 
 
-Access XXXXX, type or paste your input data and press the search button.
+Access http://wordsearcher.fmitty.net/, type or paste your input data and press the search button.
 ## Self hosting
 ```
 git clone https://github.com/mitty1293/word_searcher.git
