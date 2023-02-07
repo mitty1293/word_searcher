@@ -3,9 +3,25 @@
 Web app to search English words using regular expressions. 
 
 Access http://wordsearcher.fmitty.net/, type or paste your input data and press the search button.
-## Self hosting
+## Self hosting(via traefik)
+Replace the value of DOMAIN with the domain.
 ```
-git clone https://github.com/mitty1293/word_searcher.git
+# Copy .env_example as .env
+cp .env_example .env
+vi .env
+```
+```
+# Replace the value of DOMAIN in .env
+DOMAIN=example.com
+```
+Start the container.
+```
+docker network create traefik_reverse_proxy_network
+docker compose -f compose.traefik.yml up -d
+```
+Go to `https://wordsearcher.${DOMAIN}`.
+## Self hosting(Standalone)
+```
 docker build -t word_searcher ./word_searcher/
 docker run -itd -p <host-port>:80 --name word_searcher word_searcher
 ```
