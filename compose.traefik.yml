@@ -1,0 +1,18 @@
+services:
+  word_searcher:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: word_searcher
+    container_name: word_searcher
+    networks:
+      - traefik_reverse_proxy_network
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.word_searcher.entrypoints=websecure
+      - traefik.http.routers.word_searcher.rule=Host(`wordsearcher.${DOMAIN}`)
+      - traefik.http.routers.word_searcher.tls.certresolver=myresolver
+      - traefik.http.services.word_searcher.loadbalancer.server.port=80
+networks:
+  traefik_reverse_proxy_network:
+    external: true
